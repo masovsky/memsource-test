@@ -1,0 +1,5 @@
+html, body {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(to right, #0d1722 283px, #e6eaf0 0);
+}
