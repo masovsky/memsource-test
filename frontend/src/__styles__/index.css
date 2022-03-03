@@ -1,5 +1,5 @@
 :root {
-    --color-100-primary: #1b486d;
+    --color-100-primary: #559ed2;
     --color-white: #fff;
     --color-info: #dbedff;
     --color-error: #bf7392;
@@ -21,5 +21,5 @@
 html, body {
     position: relative;
     min-height: 100vh;
-    background: linear-gradient(to right, #0d1722 283px, #e6eaf0 0);
+    background: linear-gradient(to right, #0d1722 160px, #e6eaf0 0);
 }
