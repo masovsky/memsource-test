@@ -3,6 +3,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 2px solid var(--color-100-primary);
+    border-bottom: 2px solid var(--color-black);
     font-size: small;
 }
