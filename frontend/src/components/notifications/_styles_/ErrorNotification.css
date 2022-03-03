@@ -1,0 +1,5 @@
+.error-notification {
+    background-color: var(--color-error);
+    color: var(--color-white);
+    font-weight: bold;
+}

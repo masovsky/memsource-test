@@ -1,0 +1,4 @@
+.info-notification {
+    background-color: var(--color-info);
+    color: var(--color-100-primary);
+}

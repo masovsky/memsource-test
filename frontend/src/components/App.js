@@ -1,9 +1,10 @@
 import React from 'react';
+import Notifications from './notifications/Notifications';
 
 function App() {
     return (
         <div>
-            Running...
+            <Notifications />
         </div>
     )
 }
