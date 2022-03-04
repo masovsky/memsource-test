@@ -2,7 +2,7 @@ import axios from 'axios';
 import { showErrorNotification, showInfoNotification } from './notifications';
 
 export const loadSetting = (onResponse, onError, dispatch) => (
-    axios.get("/setting/read")
+    axios.get(`http://${process.env.REACT_APP_SERVER_HOST || window.location.host}/setting/read`)
         .then(response => onResponse(response))
         .catch(error => {
             onError(error)
@@ -11,7 +11,7 @@ export const loadSetting = (onResponse, onError, dispatch) => (
 );
 
 export const saveSetting = (name, password) => (dispatch) => (
-    axios.post("/setting/save", { name, password })
+    axios.post(`http://${process.env.REACT_APP_SERVER_HOST || window.location.host}/setting/write`, { name, password })
         .then(dispatch(showInfoNotification("Setting saved")))
         .catch(notifyOnError(dispatch))
 );
