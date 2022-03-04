@@ -5,23 +5,18 @@ import './__styles__/Settings.css';
 
 function Settings() {
     const dispatch = useDispatch()
-    const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
 
     useEffect(() => {
+        setLoading(true)
         loadSetting((response) => {
                 setName(response.data.name)
                 setPassword(response.data.password)
                 setLoading(false)
-                setError(false)
-            },
-            (error) => {
-                setError(true);
-                setLoading(false);
             }, dispatch);
-    }, []);
+    }, [dispatch]);
 
     const nameChangeHandler = (event) => setName(event.target.value);
     const passwordChangeHandler = (event) => setPassword(event.target.value);
@@ -30,10 +25,7 @@ function Settings() {
         dispatch(saveSetting(name, password));
         event.preventDefault();
     };
-
-    if (error) {
-        return <>Error</>;
-    } else if (loading) {
+    if (loading) {
         return <div>Loading...</div>;
     } else {
         return (

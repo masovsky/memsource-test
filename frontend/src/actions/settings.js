@@ -1,26 +1,23 @@
 import axios from 'axios';
-import { showErrorNotification, showInfoNotification } from './notifications';
+import { showInfoNotification } from './notifications';
+import { notifyOnError } from './index';
 
-export const loadSetting = (onResponse, onError, dispatch) => (
+export const loadSetting = (onResponse, dispatch) => (
     axios.get(`http://${process.env.REACT_APP_SERVER_HOST || window.location.host}/setting/read`)
         .then(response => onResponse(response))
-        .catch(error => {
-            onError(error)
-            notifyOnError(dispatch)
+        .catch((error) => {
+            notifyOnError(error, dispatch)
         })
 );
 
 export const saveSetting = (name, password) => (dispatch) => (
-    axios.post(`http://${process.env.REACT_APP_SERVER_HOST || window.location.host}/setting/write`, { name, password })
-        .then(dispatch(showInfoNotification("Setting saved")))
-        .catch(notifyOnError(dispatch))
+    axios.post(`http://${process.env.REACT_APP_SERVER_HOST || window.location.host}/setting/save`, { name, password })
+        .then(response => {
+                if (response.status === 200) {
+                    dispatch(showInfoNotification("Setting saved"))
+                }
+            }
+        ).catch((error) => {
+        notifyOnError(error, dispatch)
+    })
 );
-
-export const notifyOnError = (dispatch) => (error) => {
-    const { response } = error;
-    if (response) {
-        dispatch(showErrorNotification(response.statusText));
-    } else {
-        dispatch(showErrorNotification(error.message));
-    }
-};
