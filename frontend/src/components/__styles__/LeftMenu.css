@@ -3,7 +3,6 @@
     font-size: small;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .left-menu--top {
