@@ -4,6 +4,12 @@ import { createStore } from 'redux';
 import rootReducer from '../../reducers';
 import App from '../App';
 import { MemoryRouter } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+
+beforeEach(() => {
+    library.add(fas);
+});
 
 jest.mock('react-redux', () => {
     const origModule = jest.requireActual('react-redux');
