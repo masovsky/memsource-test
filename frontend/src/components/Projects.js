@@ -4,6 +4,7 @@ import { loadSetting } from '../actions/settings';
 import { login, readProjects } from '../actions/memsourceapi';
 import ProjectRow from './ProjectRow';
 import './__styles__/Projects.css';
+import { showInfoNotification } from '../actions/notifications';
 
 function Projects() {
     const dispatch = useDispatch()
@@ -13,6 +14,7 @@ function Projects() {
     useEffect(() => {
         setLoading(true);
         loadSetting((response) => {
+            if (response.data.name) {
                 login(response.data.name, response.data.password,
                     (response) => {
                         readProjects(response.data.token, (response) => {
@@ -20,7 +22,10 @@ function Projects() {
                             setLoading(false);
                         })
                     }, dispatch)
-            }, dispatch);
+            } else {
+                dispatch(showInfoNotification("Please first define the MEMSOURCE credential in Settings page "));
+            }
+        }, dispatch);
     }, [dispatch]);
     if (loading) {
         return <div>Loading...</div>;
