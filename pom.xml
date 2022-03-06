@@ -109,6 +109,35 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>com.amashchenko.maven.plugin</groupId>
+                <artifactId>gitflow-maven-plugin</artifactId>
+                <version>1.9.0</version>
+                <configuration>
+                    <verbose>true</verbose>
+                    <pushRemote>true</pushRemote>
+                    <skipTestProject>true</skipTestProject>
+                    <gitFlowConfig>
+                        <productionBranch>master</productionBranch>
+                        <developmentBranch>develop</developmentBranch>
+                        <featureBranchPrefix>feature-</featureBranchPrefix>
+                        <releaseBranchPrefix>release-</releaseBranchPrefix>
+                        <hotfixBranchPrefix>hotfix-</hotfixBranchPrefix>
+                        <supportBranchPrefix>support-</supportBranchPrefix>
+                        <versionTagPrefix />
+                    </gitFlowConfig>
+                    <commitMessages>
+                        <featureStartMessage>Updated versions for feature branch: @{version}</featureStartMessage>
+                        <featureFinishMessage>Updated versions for development branch: @{version}</featureFinishMessage>
+                        <hotfixStartMessage>Updated versions for hotfix: @{version}</hotfixStartMessage>
+                        <hotfixFinishMessage>Updated for next development version: @{version}</hotfixFinishMessage>
+                        <releaseStartMessage>Updated versions for release: @{version}</releaseStartMessage>
+                        <releaseFinishMessage>Updated for next development version: @{version}</releaseFinishMessage>
+                        <tagHotfixMessage>Tagged hotfix.</tagHotfixMessage>
+                        <tagReleaseMessage>Tagged release.</tagReleaseMessage>
+                    </commitMessages>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
