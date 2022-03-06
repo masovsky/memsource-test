@@ -22,14 +22,14 @@ Memsource Cloud use Spring Boot, too).
    - You will need to implement an endpoint in your application that will provide the data for an AJAX call.
 
 # How to compile project
-Currently, there is no released version, but you can use``1.0.0-SNAPSHOT``version to test the application.
-``mvn clean install``
+You can check out a released version with tag 1.0.1 or master or developer branch.  
+To build the project use this command: ``mvn clean install``
 
 # How to start project
-`` java -jar ./memsource-test-1.0.0-exec.jar ``
+`` java -jar ./memsource-test-1.0.1-exec.jar ``
 
 ### Configure DB persistence
-    java -jar ./memsource-test-1.0.0-exec.jar \
+    java -jar ./memsource-test-1.0.1-exec.jar \
     --spring.datasource.url="jdbc:h2:file:~/memsource-test;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE" \
     --spring.datasource.username=admin \
     --spring.datasource.password=password
