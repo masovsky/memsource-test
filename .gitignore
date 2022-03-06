@@ -1,0 +1,6 @@
+/.idea/
+/frontend/node_modules/
+/frontend/node/
+/memsource-test.iml
+/frontend/build/
+/target/

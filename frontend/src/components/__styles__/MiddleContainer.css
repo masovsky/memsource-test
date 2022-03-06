@@ -1,0 +1,11 @@
+.middle-container {
+    overflow: auto;
+    height: 100%;
+    position: relative;
+}
+
+.middle-container--box {
+    display: flex;
+    flex-grow: 1;
+    min-height: 100%;
+}
